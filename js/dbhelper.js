@@ -8,9 +8,13 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    const port = 3000;  // Change this to your server port
+    // const myserver = 127.0.0.1;
+    return `http://localhost:${port}`;
+    // `http://localhost:${port}/data/restaurants.json`; 
+    // http://${myserver}:${port}/data/restaurants.json`;
   }
+  
 
   /**
    * Fetch all restaurants.
@@ -166,16 +170,16 @@ class DBHelper {
       marker.addTo(newMap);
     return marker;
   } 
-  /* static mapMarkerForRestaurant(restaurant, map) {
-    const marker = new google.maps.Marker({
-      position: restaurant.latlng,
-      title: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant),
-      map: map,
-      animation: google.maps.Animation.DROP}
-    );
-    return marker;
-  } */
+  // static mapMarkerForRestaurant(restaurant, map) {
+  //   const marker = new google.maps.Marker({
+  //     position: restaurant.latlng,
+  //     title: restaurant.name,
+  //     url: DBHelper.urlForRestaurant(restaurant),
+  //     map: map,
+  //     animation: google.maps.Animation.DROP}
+  //   );
+  //   return marker;
+  // }
 
 }
 
