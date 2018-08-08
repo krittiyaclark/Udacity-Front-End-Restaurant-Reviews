@@ -1,4 +1,8 @@
 @charset "utf-8";
+#maincontent {
+    display: flex;
+    flex-direction: column;
+}
 
 /* ====================== Navigation ====================== */
 
