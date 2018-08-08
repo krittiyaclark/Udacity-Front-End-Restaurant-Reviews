@@ -1,0 +1,29 @@
+#reviews-list li {
+    border-radius: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#reviews-list li>p:nth-child(1) {
+    color: #ffa500;
+}
+
+#reviews-list li>p:nth-child(2) {
+    text-align: right;
+    color: #ccc
+}
+
+#reviews-list li>p:nth-child(3) {
+    width: 100%;
+    color: #f18200;
+    margin: 9px 0;
+}
+
+#reviews-list li>p:nth-child(-n+2) {
+    background-color: #000;
+    flex: 1;
+    padding: 9px 19px 9px;
+    margin: 0 -20px;
+}
