@@ -185,7 +185,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
  */
 
  if ('serviceWorker' in navigator) {
-   navigator.serviceWorker.register('./js/sw/sw.js')
+   navigator.serviceWorker.register('/sw.js')
    .then((reg) => {
       // Registration worked
      if (reg.installing) {
@@ -195,6 +195,8 @@ addMarkersToMap = (restaurants = self.restaurants) => {
      } else if (reg.active) {
        console.log('Active');
      }
+       // Registration was successful
+       console.log('ServiceWorker registration successful with scope: ', reg.scope);
    }).catch((error) => {
       // Registration failed
      console('Registration failed ' + error);

@@ -2,9 +2,10 @@
 const cacheVersion = 'v1.00';
 const cacheFiles = [
     '/',
-    './restaurant.html',
-    './css/styles.css',
-    './data/restaurants.json',
+    '/index.html',
+    '/restaurant.html',
+    'css/styles.css',
+    'data/restaurants.json',
     './img/1.jpg',
     './img/2.jpg',
     './img/3.jpg',
@@ -15,16 +16,16 @@ const cacheFiles = [
     './img/8.jpg',
     './img/9.jpg',
     './img/10.jpg',
-    './js/main.js',
-    './js/restaurant_info.js',
-    './js/dbhelper.js'
+    'js/main.js',
+    'js/restaurant_info.js',
+    'js/dbhelper.js'
 ];
 
 self.addEventListener('install', (e) => {
     e.waitUntil(
         caches
         .open(cacheVersion)
-        .then((cach) => cache.addAll(cacheFiles))
+        .then((cache) => cache.addAll(cacheFiles))
     )
 });
 
