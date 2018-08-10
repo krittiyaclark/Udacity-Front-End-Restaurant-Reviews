@@ -4,9 +4,9 @@ var newMap;
 /**
  * Initialize map as soon as the page is loaded.
  */
-// document.addEventListener('DOMContentLoaded', (event) => {  
-//   initMap();
-// });
+document.addEventListener('DOMContentLoaded', (event) => {  
+  initMap();
+});
 
 // /**
 //  * Initialize leaflet map
@@ -36,21 +36,21 @@ initMap = () => {
   });
 }  
  
-window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-}
+// window.initMap = () => {
+//   fetchRestaurantFromURL((error, restaurant) => {
+//     if (error) { // Got an error!
+//       console.error(error);
+//     } else {
+//       self.map = new google.maps.Map(document.getElementById('map'), {
+//         zoom: 16,
+//         center: restaurant.latlng,
+//         scrollwheel: false
+//       });
+//       fillBreadcrumb();
+//       DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
+//     }
+//   });
+// }
 
 /**
  * Get current restaurant from page URL.
@@ -194,4 +194,27 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+/**
+ * Add the Service Worker.
+ */
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then((reg) => {
+      // Registration worked
+      if (reg.installing) {
+        console.log('Installing');
+      } else if (reg.waiting) {
+        console.log('Installed');
+      } else if (reg.active) {
+        console.log('Active');
+      }
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', reg.scope);
+    }).catch((error) => {
+      // Registration failed
+      console('Registration failed ' + error);
+    });
 }
